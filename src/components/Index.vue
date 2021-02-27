@@ -64,6 +64,8 @@ export default {
       newTask: "",
       todo: json["todo"],
       dones: json["done"],
+      editIn: -1,
+      edited: "",
     };
   },
   methods: {
@@ -76,6 +78,14 @@ export default {
     doT(index) {
       this.dones.unshift(this.todo[index]);
       this.todo.splice(index, 1);
+    },
+    edit(index) {
+      this.editIn = index;
+      this.edited = this.todo[index];
+    },
+    editT(index) {
+      this.todo[index] = this.edited;
+      this.editIn = -1;
     },
     undoT(index) {
       this.todo.unshift(this.dones[index]);
