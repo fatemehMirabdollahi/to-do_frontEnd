@@ -4,7 +4,6 @@
     <div class="item">
       <span>add Task:</span>
       <input
-        @focus="unholder"
         v-on:keyup.13="add(newTask)"
         type="text"
         name=""
@@ -18,11 +17,23 @@
           <button class="dobut dobut-do" @click="doT(index)"></button>
         </div>
         <div style="flex:10;" class="field">
-          <span>{{ item }}</span>
+          <span v-if="index != editIn">{{ item }}</span>
+          <input
+            v-else
+            v-on:keyup.13="editT(index)"
+            type="text"
+            name=""
+            id=""
+            v-model="edited"
+          />
         </div>
         <div style="flex:1;" class="field">
-          <button @click="deleteT(index)">delete</button>
-          <button @click="edit(index)">edit</button>
+          <button class="deletebut" @click="deleteT(index)">
+            <img src="@/assets/delete.svg" />
+          </button>
+          <button class="editbut" @click="edit(index)">
+            <img src="@/assets/edit.svg" />
+          </button>
         </div>
       </div>
     </div>
@@ -36,7 +47,9 @@
           <span>{{ item }}</span>
         </div>
         <div style="flex:1;" class="field">
-          <button @click="deleteDon(index)">delete</button>
+          <button class="deletebut" @click="deleteDon(index)">
+            <img src="@/assets/delete.svg" />
+          </button>
         </div>
       </div>
     </div>
@@ -46,7 +59,6 @@
 <script>
 import json from "./works";
 export default {
-  components: {},
   data() {
     return {
       newTask: "",
@@ -65,14 +77,13 @@ export default {
       this.dones.unshift(this.todo[index]);
       this.todo.splice(index, 1);
     },
-    edit() {},
     undoT(index) {
       this.todo.unshift(this.dones[index]);
       this.dones.splice(index, 1);
     },
     add(task) {
       if (task) this.todo.unshift(task);
-      this.newTask = "add Task";
+      this.newTask = "";
     },
   },
 };
@@ -80,8 +91,7 @@ export default {
 
 <style scoped lang="scss">
 .home {
-  width: 70%;
-  margin: 50px;
+  width: 100%;
   border: firebrick solid;
   padding: 10px;
 }
@@ -126,5 +136,15 @@ input {
     border: none;
     border-bottom: solid black;
   }
+}
+img {
+  width: 15px;
+  height: 20px;
+}
+.deletebut {
+  background-color: rgb(236, 95, 95);
+}
+.editbut {
+  background-color: hsl(105, 67%, 63%);
 }
 </style>
