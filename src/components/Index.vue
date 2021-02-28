@@ -65,7 +65,7 @@ export default {
       todo: json["todo"],
       dones: json["done"],
       editIn: -1,
-      edited: "",
+      edited: ""
     };
   },
   methods: {
@@ -94,8 +94,8 @@ export default {
     add(task) {
       if (task) this.todo.unshift(task);
       this.newTask = "";
-    },
-  },
+    }
+  }
 };
 </script>
 
