@@ -28,7 +28,7 @@
           />
         </div>
         <div style="flex:1;" class="field">
-          <button class="deletebut" @click="deleteT(index)">
+          <button class="fielddeletebut" @click="deleteT(index)">
             <img src="@/assets/delete.svg" />
           </button>
           <button class="editbut" @click="edit(index)">
