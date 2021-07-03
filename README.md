@@ -53,16 +53,15 @@ cd# to-do
 <img  src="screenshot.png" alt="Logo" width="600" height="300">
 </p>
 </br>
-it is a simple to-do ui to add your tasks in it and checked them when they had done.
-it is just a ui and back-end will be addede
+It is a simple to-do frontend project to add your tasks in it and checked them when you have done them.
+it is just a frontened and back-end and database will be added.
 some noe :)
 
-* defferent to-do apps are availble but i want to practice programing on somthinf that i will use.
-* it is so simple feature will be added as i need them 
+* defferent to-do apps are availble but i want to practice programing on something that i will use.
+* it is so simple, feature will be added as i need them.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 * [Javascript](www.javascript.com)
 * [Vue js](Vue.jsvuejs.org)
 * [Sass](https://sass-lang.com/)
@@ -74,7 +73,7 @@ This section should list any major frameworks that you built your project using.
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+This is thie list things you need to use and how to install them.
     <br />
 
 * npm
