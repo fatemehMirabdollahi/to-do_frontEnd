@@ -1,4 +1,4 @@
-cd# to-do
+ to-do
 
 <!-- PROJECT LOGO -->
 <br />
