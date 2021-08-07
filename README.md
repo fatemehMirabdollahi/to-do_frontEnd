@@ -51,12 +51,12 @@
 <img  src="screenshot.png" alt="Logo" width="600" height="300">
 </p>
 </br>
-It is a simple to-do frontend project to add your tasks in it and checked them when you have done them.
-it is just a frontened and back-end and database will be added.
-some noe :)
+It is a simple to-do frontend project that help you organize your daily tasks .
+
+some note :)
 
 * defferent to-do apps are availble but i want to practice programing on something that i will use.
-* it is so simple, feature will be added as i need them.
+* feature will be added as i need them.
 
 ### Built With
 
@@ -71,7 +71,7 @@ some noe :)
 
 ### Prerequisites
 
-This is thie list things you need to use and how to install them.
+This is the list of things you need to use and how to install them.
     <br />
 
 * npm
