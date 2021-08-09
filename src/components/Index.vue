@@ -4,7 +4,7 @@
     <div class="item">
       <span>add Task:</span>
       <input
-        v-on:keyup.13="add(newTask)"
+        v-on:keyup.enter="add(newTask)"
         type="text"
         name=""
         id=""
@@ -20,7 +20,7 @@
           <span v-if="index != editIn">{{ item }}</span>
           <input
             v-else
-            v-on:keyup.13="editT(index)"
+            v-on:keyup.enter="editT(index)"
             type="text"
             name=""
             id=""
