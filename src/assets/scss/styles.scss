@@ -1,0 +1,109 @@
+@use './themes/dark' as dark;
+@use './themes/light' as light;
+
+:root {
+  --primary-color: #{dark.$primary-color};
+  --on-primary-color: #{dark.$on-primary-color};
+  --secondary-color: #{dark.$secondary-color};
+  --on-secondary-color: #{dark.$on-secondary-color};
+  --brand-color: #{dark.$brand-color};
+}
+
+[theme='light'] {
+  --primary-color: #{light.$primary-color};
+  --on-primary-color: #{light.$on-primary-color};
+  --secondary-color: #{light.$secondary-color};
+  --on-secondary-color: #{light.$on-secondary-color};
+  --brand-color: #{light.$brand-color};
+}
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Samim', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+}
+
+textarea,
+ul,
+div {
+  scrollbar-width: thin;
+  scrollbar-color: var(--secondary-color) transparent;
+}
+
+textarea::-webkit-scrollbar-thumb,
+ul::-webkit-scrollbar-thumb,
+div::-webkit-scrollbar-thumb {
+  width: 5px;
+  border-radius: 3px;
+  background-color: var(--secondary-color);
+}
+
+textarea::-webkit-scrollbar,
+ul::-webkit-scrollbar,
+div::-webkit-scrollbar {
+  width: 5px;
+  border-radius: 3px;
+  background-color: transparent;
+}
+
+.i-flex {
+  display: flex;
+}
+
+.i-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.i-flex-justify-center {
+  justify-content: center;
+}
+
+.i-flex-justfiy-end {
+  justify-content: flex-end;
+}
+
+.i-flex-align-center {
+  align-items: center;
+}
+
+.i-flex-align-end {
+  align-items: flex-end;
+}
+
+.i-label {
+  color: var(--on-secondary-color);
+  font-size: fontSize('s');
+}
+
+.i-value {
+  color: var(--on-secondary-color);
+  font-size: fontSize('l');
+  font-weight: bold;
+}

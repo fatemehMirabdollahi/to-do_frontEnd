@@ -1,8 +1,8 @@
-import Index from "@/components/Index";
+import Template from "@/components/Template";
 export default [
   {
     path: "/",
-    name: "Index",
-    component: Index
+    component: Template,
+    children: []
   }
 ];

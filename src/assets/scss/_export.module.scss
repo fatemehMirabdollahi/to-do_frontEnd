@@ -1,0 +1,21 @@
+@use 'themes/dark' as dark;
+@use 'themes/light' as light;
+
+// @import "variables";
+
+:export {
+  _dark: {
+    primary: dark.$primary-color;
+    secondary: dark.$secondary-color;
+    on-primary: dark.$on-primary-color;
+    on-secondary: dark.$on-secondary-color;
+    brand-color: dark.$brand-color;
+  }
+  _light: {
+    primary: light.$primary-color;
+    secondary: light.$secondary-color;
+    on-primary: light.$on-primary-color;
+    on-secondary: light.$on-secondary-color;
+    brand-color: light.$brand-color;
+  }
+}
