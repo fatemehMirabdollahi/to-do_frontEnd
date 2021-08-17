@@ -1,7 +1,27 @@
 @use './themes/dark' as dark;
 @use './themes/light' as light;
+$font-size: (
+  's': 12px,
+  'm': 14px,
+  'l': 16px,
+  'xl': 20px,
+  'xxl': 30px,
+);
 
+@function fontSize($size) {
+  @return map-get($map: $font-size, $key: $size);
+}
 :root {
+  --primary-color: #{light.$primary-color};
+  --on-primary-color: #{light.$on-primary-color};
+  --secondary-color: #{light.$secondary-color};
+  --secondary-color-light: #{light.$secondary-color-light};
+  --secondary-color-dark: #{light.$secondary-color-dark};
+  --on-secondary-color: #{light.$on-secondary-color};
+  --brand-color: #{light.$brand-color};
+}
+
+[theme="dark"] {
   --primary-color: #{dark.$primary-color};
   --on-primary-color: #{dark.$on-primary-color};
   --secondary-color: #{dark.$secondary-color};
@@ -9,10 +29,12 @@
   --brand-color: #{dark.$brand-color};
 }
 
-[theme='light'] {
+[theme="light"] {
   --primary-color: #{light.$primary-color};
   --on-primary-color: #{light.$on-primary-color};
   --secondary-color: #{light.$secondary-color};
+  --secondary-color-light: #{light.$secondary-color-light};
+  --secondary-color-dark: #{light.$secondary-color-dark};
   --on-secondary-color: #{light.$on-secondary-color};
   --brand-color: #{light.$brand-color};
 }
@@ -29,7 +51,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Samim', sans-serif;
+  font-family: "Samim", sans-serif;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -84,7 +106,9 @@ div::-webkit-scrollbar {
 .i-flex-justify-center {
   justify-content: center;
 }
-
+.i-flex-justify-start {
+  justify-content: start;
+}
 .i-flex-justfiy-end {
   justify-content: flex-end;
 }
@@ -99,11 +123,11 @@ div::-webkit-scrollbar {
 
 .i-label {
   color: var(--on-secondary-color);
-  font-size: fontSize('s');
+  font-size: fontSize("s");
 }
 
 .i-value {
   color: var(--on-secondary-color);
-  font-size: fontSize('l');
+  font-size: fontSize("l");
   font-weight: bold;
 }
