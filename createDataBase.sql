@@ -1,0 +1,29 @@
+CREATE TABLE list (
+	list_title VARCHAR(50) NOT NULL,
+	undone INTEGER DEFAULT 0 
+	PRIMARY KEY(list_title)
+);
+CREATE TABLE task (
+	task_id INT GENERATED ALWAYS AS IDENTITY,
+	task_title VARCHAR(50) NOT NULL,
+	important BOOLEAN DEFAULT FALSE,
+	myday BOOLEAN DEFAULT FALSE,
+	done BOOLEAN DEFAULT FALSE,
+	step_num INTEGER DEFAULT 0,
+	done_step INTEGER DEFAULT 0,
+	PRIMARY KEY(task_id)
+	CONSTRAINT fk_list
+		FOREIGN KEY(list_title)
+			REFERENCES list(list_title)
+			ON DELETE CASCADE			
+);
+CREATE TABLE step(
+	step_id INT GENERATED ALWAYS AS IDENTITY,
+	title VARCHAR(50) NOT NULL,
+	done BOOLEAN DEFAULT FALSE,
+	PRIMARY KEY (step_id),
+	CONSTRAINT fk_task
+		FOREIGN KEY(task_id)
+			REFERENCES task(task_id)
+			ON DELETE CASCADE
+)
