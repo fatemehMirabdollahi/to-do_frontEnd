@@ -7,16 +7,42 @@
       <span class="item-arrow" v-html="open ? '&#8249;' : '&#8250;'" />
     </div>
     <div
-      v-for="item in list"
+      v-for="item in mainList"
       :key="item.title"
       class=" i-flex-align-center i-flex item"
       :class="{ 'i-flex-justify-start': open, 'i-flex-justify-center': !open }"
     >
-      <span class="item-element">
+      <span
+        class="item-element"
+        :style="{ 'justify-content': open ? 'space-between' : 'center' }"
+      >
         <img :src="require(`../assets/icons/${item.name}.svg`)" alt="" />
-        <span :style="{ display: open ? 'inline' : 'none' }">{{
-          item.title
-        }}</span>
+        <span :style="{ display: open ? 'inline' : 'none' }" class="title">
+          {{ item.title }}
+        </span>
+        <span v-if="open">
+          {{ item.num }}
+        </span>
+      </span>
+    </div>
+    <div style="margin-top:20px"></div>
+    <div
+      v-for="item in userLists"
+      :key="item.title"
+      class=" i-flex-align-center i-flex item"
+      :class="{ 'i-flex-justify-start': open, 'i-flex-justify-center': !open }"
+    >
+      <span
+        class="item-element"
+        :style="{ 'justify-content': open ? 'space-between' : 'center' }"
+      >
+        <img :src="require(`../assets/icons/list.svg`)" alt="" />
+        <span :style="{ display: open ? 'inline' : 'none' }" class="title">
+          {{ item.name }}
+        </span>
+        <span v-if="open">
+          {{ item.undone }}
+        </span>
       </span>
     </div>
   </div>
@@ -26,32 +52,45 @@
 export default {
   data() {
     return {
-      width: 123,
-      open: true,
+      width: 50,
+      open: false,
       arrow: "&#33;",
-      list: [
+      userLists: [],
+      mainList: [
         {
           name: "myDay",
-          title: "My Day"
+          title: "My Day",
+          num: 0
         },
         {
           name: "important",
-          title: "Important"
+          title: "Important",
+          num: 0
         },
         {
           name: "infinity",
-          title: "All"
+          title: "All",
+          num: 0
         }
       ]
     };
   },
+  created() {
+    this.$axios.get("/lists").then(response => {
+      console.log(response.data);
+      this.mainList[0].num = response.data.myday;
+      this.mainList[1].num = response.data.important;
+      this.mainList[2].num = response.data.all;
+      this.userLists = response.data.lists;
+    });
+  },
   methods: {
     toggle() {
       if (this.open) {
-        this.width = 55;
+        this.width = 50;
         this.open = false;
       } else {
-        this.width = 140;
+        this.width = 200;
         setTimeout(() => {
           this.open = true;
         }, 50);
@@ -79,12 +118,21 @@ export default {
     justify-content: center;
   }
 }
+.test {
+  flex: 1 0 auto;
+}
 .item {
   height: 40px;
   &-element {
-    margin: 10px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin: 15px;
     & > span {
       margin-left: 10px;
+    }
+    .title {
+      flex: 1 0 auto;
     }
   }
   &-arrow {
