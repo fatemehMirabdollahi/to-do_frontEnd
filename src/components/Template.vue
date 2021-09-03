@@ -26,7 +26,7 @@ export default {
   width: 100vw;
   flex: 1 0 100%;
   display: flex;
-  height: 100vw;
+  height: 100%;
 }
 .header {
   width: 100%;
