@@ -16,6 +16,7 @@ CREATE TABLE task (
 		FOREIGN KEY(list_title)
 			REFERENCES list(list_title)
 			ON DELETE CASCADE			
+			ON UPDATE CASCADE		
 );
 CREATE TABLE step(
 	step_id INT GENERATED ALWAYS AS IDENTITY,
